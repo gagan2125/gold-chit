@@ -143,7 +143,7 @@ const Sidebar = () => {
               !open && "scale-0"
             } duration-300 `}
           >
-            MyChits
+            MyChits Gold
           </h3>
         </div>
 

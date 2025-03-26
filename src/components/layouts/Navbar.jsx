@@ -15,12 +15,12 @@ const Navbar = ({onGlobalSearchChangeHandler=()=>{},visibility=false}) => {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
-      <nav className="bg-white w-full fixed top-0 left-0 z-10 shadow-md">
+      <nav className="bg-yellow-50 w-full fixed top-0 left-0 z-10 shadow-md">
         <div className="container flex justify-between items-center py-2 px-10">
           <div className="text-2xl flex items-center gap-2 font-bold py-4 uppercase">
             <AiTwotoneGold />
-            <p>MyChits</p>
-            <p className="text-primary">Chit</p>
+            <p>MyChits </p>
+            <p className="text-yellow-600">Gold</p>
           </div>
           <div>
             <GlobalSearchBar onGlobalSearchChangeHandler={onGlobalSearchChangeHandler} visibility={visibility}/>
