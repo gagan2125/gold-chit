@@ -34,11 +34,13 @@ const DataTable = ({
   }, [data]);
   const onSelectRow = (_id) => {
    
-      const tempActive = active;
+      const tempActive = active
+      if(Object.keys(active)){
       Object.keys(active).forEach((key) => {
         tempActive[key] = false;
       });
       setActive({ ...tempActive, [_id]: true });
+    }
     
   };
   const searchData = (data) => {
