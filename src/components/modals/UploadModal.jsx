@@ -29,7 +29,7 @@ const UploadModal = ({ show, onClose, onSubmit, groups, selectedGroupId, handleG
           <h2 className="text-xl font-bold">Upload Payment</h2>
           <button
             onClick={downloadExcel}
-            className="bg-green-500 text-white px-4 py-2 rounded shadow-md hover:bg-green-600 transition duration-200"
+            className="bg-yellow-500 text-white px-4 py-2 rounded shadow-md hover:bg-blue-800 transition duration-200"
           >
             Download Excel
           </button>
@@ -93,7 +93,7 @@ const UploadModal = ({ show, onClose, onSubmit, groups, selectedGroupId, handleG
             </button>
             <button
               type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded shadow-md hover:bg-blue-600 transition duration-200"
+              className="bg-yellow-500 text-white px-4 py-2 rounded shadow-md hover:bg-blue-800 transition duration-200"
             >
               Upload
             </button>

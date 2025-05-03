@@ -51,7 +51,7 @@ const User = () => {
   const [searchText, setSearchText] = useState("");
   const GlobalSearchChangeHandler = (e) => {
     const { value } = e.target;
-    console.log("first",value)
+    console.log("first", value)
     setSearchText(value);
   };
   const handleChange = (e) => {
@@ -187,6 +187,7 @@ const User = () => {
         const formattedData = response.data.map((group, index) => ({
           _id: group._id,
           id: index + 1,
+          date: group?.createdAt,
           name: group.full_name,
           phone_number: group.phone_number,
           address: group.address,
@@ -411,67 +412,16 @@ const User = () => {
                 )
               )}
               columns={columns}
-              exportedFileName={`Customers-${
-                TableUsers.length > 0
-                  ? TableUsers[0].name +
-                    " to " +
-                    TableUsers[TableUsers.length - 1].name
-                  : "empty"
-              }.csv`}
-            />
-            {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-              {filteredUsers.length === 0 ? (
-                <div className="flex justify-center items-center h-64">
-                  <p className="text-gray-500 text-lg">
-                    No customers added yet
-                  </p>
-                </div>
-              ) : (
-                filteredUsers.map((user) => (
-                  <div
-                    key={user.id}
-                    className="bg-white border border-gray-300 rounded-xl p-6 shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
-                  >
-                    <div className="flex flex-col items-center">
-                      <h2 className="text-xl font-bold mb-3 text-gray-700 text-center">
-                        {user.full_name}
-                      </h2>
-                      <div className="flex gap-16 py-3">
-                        <p className="text-gray-500 mb-2 text-center">
-                          <span className="font-medium text-gray-700 text-xl">
-                            0
-                          </span>
-                          <br />
-                          <span className="font-bold text-sm">Groups</span>
-                        </p>
-                        <p className="text-gray-500 mb-4 text-center">
-                          <span className="font-medium text-gray-700 text-xl">
-                            {user.phone_number}
-                          </span>
-                          <br />
-                          <span className="font-bold text-sm">Phone</span>
-                        </p>
-                      </div>
-                    </div>
+              // exportedFileName={`Customers-${
+              //  users[0]?.createdAt.split("T")[0] 
+              // }-${
+              //   users[users.length-1]?.createdAt.split("T")[0] 
+              //  }.csv`}
 
-                    <div className="flex justify-end gap-2">
-                      <button
-                        onClick={() => handleUpdateModalOpen(user._id)}
-                        className="border border-green-400 text-white px-4 py-2 rounded-md shadow hover:border-green-700 transition duration-200"
-                      >
-                        <CiEdit color="green" />
-                      </button>
-                      <button
-                        onClick={() => handleDeleteModalOpen(user._id)}
-                        className="border border-red-400 text-white px-4 py-2 rounded-md shadow hover:border-red-700 transition duration-200"
-                      >
-                        <MdDelete color="red" />
-                      </button>
-                    </div>
-                  </div>
-                ))
-              )}
-            </div> */}
+              exportedFileName={`Customers-${users.length > 0 ? users[0]?.createdAt.split("T")[0] : "NoData"}-${users.length > 0 ? users[users.length - 1]?.createdAt.split("T")[0] : "NoData"}.csv`}
+
+            />
+
           </div>
         </div>
         <Modal isVisible={showModal} onClose={() => setShowModal(false)}>

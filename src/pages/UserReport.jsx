@@ -585,7 +585,7 @@ const UserReport = () => {
                       <button
                         className={`px-6 py-2 font-medium ${
                           activeTab === "groupDetails"
-                            ? "border-b-2 border-blue-500 text-blue-500"
+                            ? "border-b-2 border-yellow-500 text-yellow-500"
                             : "text-gray-500"
                         }`}
                         onClick={() => handleTabChange("groupDetails")}
@@ -595,7 +595,7 @@ const UserReport = () => {
                       <button
                         className={`px-6 py-2 font-medium ${
                           activeTab === "basicReport"
-                            ? "border-b-2 border-blue-500 text-blue-500"
+                            ? "border-b-2 border-yellow-500 text-yellow-500"
                             : "text-gray-500"
                         }`}
                         onClick={() => handleTabChange("basicReport")}
@@ -605,7 +605,7 @@ const UserReport = () => {
                       <button
                         className={`px-6 py-2 font-medium ${
                           activeTab === "dateWiseReport"
-                            ? "border-b-2 border-blue-500 text-blue-500"
+                            ? "border-b-2 border-yellow-500 text-yellow-500"
                             : "text-gray-500"
                         }`}
                         onClick={() => handleTabChange("dateWiseReport")}

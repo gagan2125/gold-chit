@@ -476,7 +476,8 @@ const GroupReport = () => {
             <h1 className="text-2xl font-semibold text-center">Reports - Group</h1>
             <div className="mt-6 mb-8">
               <div className="mb-2">
-                <div className="flex justify-center items-center w-full gap-4 p-2 bg-blue-50 rounded-md shadow-md">
+              <div className="flex justify-center items-center w-full gap-4 p-2 bg-gray-300 rounded-md shadow-md">
+
                   <div className="mb-2 flex flex-col">
                     <label className="flex w-auto p-4 gap-2 justify-center items-center select-none font-semibold  shadow-sm mb-2 rounded-sm" htmlFor={"SS"}>
                       Search Or Select Group</label>
@@ -513,7 +514,7 @@ const GroupReport = () => {
                       <button
                         className={`px-6 py-2 font-medium ${
                           activeTab === "groupDetails"
-                            ? "border-b-2 border-blue-500 text-blue-500"
+                            ? "border-b-2 border-yellow-500 text-yellow-500"
                             : "text-gray-500"
                         }`}
                         onClick={() => handleTabChange("groupDetails")}
@@ -523,7 +524,7 @@ const GroupReport = () => {
                       <button
                         className={`px-6 py-2 font-medium ${
                           activeTab === "basicReport"
-                            ? "border-b-2 border-blue-500 text-blue-500"
+                            ? "border-b-2 border-yellow-500 text-yellow-500"
                             : "text-gray-500"
                         }`}
                         onClick={() => handleTabChange("basicReport")}
@@ -533,7 +534,7 @@ const GroupReport = () => {
                       <button
                         className={`px-6 py-2 font-medium ${
                           activeTab === "dateWiseReport"
-                            ? "border-b-2 border-blue-500 text-blue-500"
+                            ? "border-b-2 border-yellow-500 text-yellow-500"
                             : "text-gray-500"
                         }`}
                         onClick={() => handleTabChange("dateWiseReport")}
@@ -702,7 +703,9 @@ const GroupReport = () => {
                       <>
                         <div>
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10 mb-10">
-                            <div className="bg-blue-300 shadow-md rounded-lg p-4">
+                            <div className="group flex items-center bg-white border border-[#e8d28f] 
+                          p-5 rounded-2xl shadow-md transition-all duration-300 
+                          hover:scale-105 hover:shadow-lg hover:border-[#e0b84c]">
                               <h3 className="text-2xl font-semibold text-start mb-2">
                                 ₹
                                 {filteredUsers[0]?.group?.group_type ===
@@ -747,21 +750,21 @@ const GroupReport = () => {
                                   </>
                                 )}
                               </h3>
-                              <div className="text-gray-700">
+                              <div className>
                                 <p className="mb-2 font-bold">
                                   Amount to be Paid
                                 </p>
                               </div>
                             </div>
-                            <div className="bg-yellow-300 shadow-md rounded-lg p-4">
+                            <div className="bg-yellow-500  shadow-lg rounded-xl p-6 text-white">
                               <h3 className="text-2xl font-semibold text-start mb-2">
                                 ₹ {groupPaid || 0}
                               </h3>
-                              <div className="text-gray-700">
+                              <div className>
                                 <p className="mb-2 font-bold">Paid Amount</p>
                               </div>
                             </div>
-                            <div className="bg-red-400 shadow-md rounded-lg p-4">
+                            <div className="bg-yellow-500  shadow-lg rounded-xl p-6 text-white">
                               <h3 className="text-2xl font-semibold text-start mb-2">
                                 ₹{" "}
                                 {filteredUsers[0]?.group?.group_type ===
@@ -806,7 +809,7 @@ const GroupReport = () => {
                                   </>
                                 )}
                               </h3>
-                              <div className="text-gray-700">
+                              <div className="text-white">
                                 <p className="font-bold">Balance Amount</p>
                               </div>
                             </div>
@@ -861,7 +864,7 @@ const GroupReport = () => {
                           </div>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10 mb-10">
-                          <div className="bg-blue-300 shadow-md rounded-lg p-4">
+                          <div className="bg-gradient-to-br from-[#4556aa] via-[#634bd1] to-[#e6d3c4] shadow-lg rounded-xl p-6 text-white">
                             <h3 className="text-2xl font-semibold text-start mb-2">
                               ₹
                               {filteredUsers[0]?.group?.group_type ===
@@ -909,7 +912,7 @@ const GroupReport = () => {
                               </p>
                             </div>
                           </div>
-                          <div className="bg-yellow-300 shadow-md rounded-lg p-4">
+                          <div className="bg-gradient-to-br from-[#306fae] via-[#ffa750] to-[#e6d3c4] shadow-lg rounded-xl p-6 text-white">
                             <h3 className="text-2xl font-semibold text-start mb-2">
                               ₹ {groupPaidDate || 0}
                             </h3>
@@ -917,7 +920,7 @@ const GroupReport = () => {
                               <p className="mb-2 font-bold">Paid Amount</p>
                             </div>
                           </div>
-                          <div className="bg-red-400 shadow-md rounded-lg p-4">
+                          <div className="bg-gradient-to-br from-[#0f2027] via-[#1739c2] to-[#2c5364] shadow-lg rounded-xl p-6 text-white">
                             <h3 className="text-2xl font-semibold text-start mb-2">
                               ₹
                               {filteredUsers[0]?.group?.group_type ===

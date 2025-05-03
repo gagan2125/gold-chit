@@ -148,25 +148,25 @@ const GroupSettings = () => {
   };
 
   const handleUpdate = async (e) => {
-    e.preventDefault();
-    const isValid = validateForm();
+    // e.preventDefault();
+    // const isValid = validateForm();
 
-    try {
-      if (isValid) {
-        await api.put(
-          `/group/update-group/${currentUpdateGroup._id}`,
-          updateFormData
-        );
-        setShowModalUpdate(false);
-        setAlertConfig({
-          message: "Group updated successfully",
-          type: "success",
-          visibility: true,
-        });
-      }
-    } catch (error) {
-      console.error("Error updating group:", error);
-    }
+    // try {
+    //   if (isValid) {
+    //     await api.put(
+    //       `/group/update-group/${currentUpdateGroup._id}`,
+    //       updateFormData
+    //     );
+    //     setShowModalUpdate(false);
+    //     setAlertConfig({
+    //       message: "Group updated successfully",
+    //       type: "success",
+    //       visibility: true,
+    //     });
+    //   }
+    // } catch (error) {
+    //   console.error("Error updating group:", error);
+    // }
   };
 
   const columns = [

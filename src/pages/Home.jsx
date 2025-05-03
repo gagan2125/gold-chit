@@ -1,10 +1,9 @@
 import Sidebar from "../components/layouts/Sidebar";
 import { GrGroup } from "react-icons/gr";
 import { BsArrowDown, BsArrowUp } from "react-icons/bs";
-import { MdGroups } from "react-icons/md";
+import { MdGroups, MdOutlinePayments } from "react-icons/md";
 import { LiaLayerGroupSolid } from "react-icons/lia";
 import { FaUserLock } from "react-icons/fa";
-import { MdOutlinePayments } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
 import { useEffect, useState } from "react";
 import api from "../instance/TokenInstance";
@@ -18,7 +17,7 @@ const Home = () => {
   const [paymentsValue, setPaymentsValue] = useState("...");
   const [paymentsPerMonth, setPaymentsPerMonth] = useState([]);
   const [paymentsPerMonthValue, setPaymentsPerMonthValue] = useState("...");
-  const [searchValue,setSearchValue] = useState("")
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     const fetchGroups = async () => {
@@ -60,13 +59,11 @@ const Home = () => {
     const fetchPayments = async () => {
       try {
         const response = await api.get("/payment/get-payment");
-        console.log(response.data);
         const paymentData = response.data;
         const totalAmount = paymentData.reduce(
           (sum, payment) => sum + Number(payment.amount || 0),
           0
         );
-
         setPaymentsValue(totalAmount);
       } catch (error) {
         console.error("Error fetching payment data:", error);
@@ -85,7 +82,6 @@ const Home = () => {
           2,
           "0"
         )}-01`;
-        console.log("firstday",firstDay);
         const lastDay = new Date(currentYear, currentMonth + 1, 0);
         const lastDayFormatted = lastDay.toISOString().split("T")[0];
 
@@ -99,7 +95,6 @@ const Home = () => {
         setPaymentsPerMonth(response.data);
 
         const totalAmount = response.data.reduce((sum, payment) => {
-          console.log("payment", payment.amount);
           return sum + Number(payment.amount || 0);
         }, 0);
         setPaymentsPerMonthValue(totalAmount);
@@ -109,96 +104,85 @@ const Home = () => {
     };
     fetchMonthlyPayments();
   }, []);
+
   const cardData = [
     {
       icon: <LiaLayerGroupSolid size={20} />,
       text: "Groups",
       count: groups.length,
-      bgColor: "bg-blue-200",
-      iconColor: "bg-blue-900",
       redirect: "/group",
     },
     {
-      icon: <MdGroups size={16} />,
+      icon: <MdGroups size={18} />,
       text: "Customers",
       count: users.length,
-      bgColor: "bg-orange-200",
-      iconColor: "bg-orange-900",
       redirect: "/user",
     },
     {
-      icon: <FaUserLock size={16} />,
+      icon: <FaUserLock size={18} />,
       text: "Agents",
       count: agents.length,
-      bgColor: "bg-green-200",
-      iconColor: "bg-green-900",
       redirect: "/agent",
     },
     {
-      icon: <MdOutlinePayments size={16} />,
+      icon: <MdOutlinePayments size={18} />,
       text: "Payments",
       count: `₹${paymentsValue}`,
-      bgColor: "bg-red-200",
-      iconColor: "bg-red-900",
       redirect: "/payment",
     },
     {
-      icon: (
-        <div className="text-center">
-          {" "}
-          <SlCalender size={16} /> ₹{" "}
-        </div>
-      ),
+      icon: <SlCalender size={18} />,
       text: "Current Month Payments",
       count: `₹${paymentsPerMonthValue}`,
-      bgColor: "bg-purple-200",
-      iconColor: "bg-purple-900",
       redirect: "/payment",
     },
-  ].filter((ele)=>ele.text.toLowerCase().includes(searchValue.toLocaleLowerCase()));
-  
-const onGlobalSearchChangeHandler = (e)=>{
-  const {value} = e.target;
-  console.log("first",value)
-  setSearchValue(value)
-}
+  ].filter((ele) =>
+    ele.text.toLowerCase().includes(searchValue.toLowerCase())
+  );
+
+  const onGlobalSearchChangeHandler = (e) => {
+    const { value } = e.target;
+    setSearchValue(value);
+  };
 
   return (
-    <>
-      <div>
-        <div className="flex mt-20">
-          <Sidebar />
-        <Navbar onGlobalSearchChangeHandler={onGlobalSearchChangeHandler} visibility={true} />
-          <div className="flex-grow p-7">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 w-full">
-              {cardData.map((card, index) => (
-                <a
-                  href={card.redirect}
-                  key={index}
-                  className={`group flex items-center ${card.bgColor} p-3 rounded-md shadow-sm transform transition-transform duration-300 hover:scale-105`}
-                >
-                  <div
-                    className={`flex items-center justify-center w-14 h-14 ${card.iconColor} text-white rounded-full mr-3`}
-                  >
-                    {card.icon}
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-lg font-medium text-black">
-                      {card.text}
-                    </p>
-                  </div>
-                  <div>
-                    <span className="text-lg font-semibold text-black">
-                      {card.count}
-                    </span>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
+    <div className="flex mt-20">
+      <Sidebar />
+      <Navbar
+        onGlobalSearchChangeHandler={onGlobalSearchChangeHandler}
+        visibility={true}
+      />
+      <div className="flex-grow p-6 bg-white min-h-screen">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {cardData.map((card, index) => (
+            <a
+              href={card.redirect}
+              key={index}
+              className={`group flex items-center bg-white border border-[#e8d28f] 
+                          p-5 rounded-2xl shadow-md transition-all duration-300 
+                          hover:scale-105 hover:shadow-lg hover:border-[#e0b84c]`}
+            >
+              <div
+                className="flex items-center justify-center w-14 h-14 
+                           bg-gradient-to-br from-[#f3eac2] to-[#e0c25c] 
+                           text-black rounded-full shadow-md group-hover:rotate-2 
+                           transition-transform duration-300"
+              >
+                {card.icon}
+              </div>
+              <div className="ml-4">
+                <p className="text-sm font-medium text-[#444] group-hover:text-black">
+                  {card.text}
+                </p>
+                <span className="text-lg font-bold text-black">
+                  {card.count}
+                </span>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

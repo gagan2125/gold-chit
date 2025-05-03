@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import CircularLoader from "../loaders/CircularLoader";
 import { Select } from "antd";
+
 const DataTable = ({
   updateHandler = () => {},
   catcher = "_id",
@@ -25,24 +26,23 @@ const DataTable = ({
   const [filters, setFilters] = useState({});
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
   const [pageSize, setPageSize] = useState(100);
+
   useEffect(() => {
     const tempData = {};
-    data.forEach((ele, index) => {
+    data.forEach((ele) => {
       tempData[ele._id] = false;
     });
     setActive(tempData);
   }, [data]);
+
   const onSelectRow = (_id) => {
-   
-      const tempActive = active
-      if(Object.keys(active)){
-      Object.keys(active).forEach((key) => {
-        tempActive[key] = false;
-      });
-      setActive({ ...tempActive, [_id]: true });
-    }
-    
+    const tempActive = { ...active };
+    Object.keys(active).forEach((key) => {
+      tempActive[key] = false;
+    });
+    setActive({ ...tempActive, [_id]: true });
   };
+
   const searchData = (data) => {
     if (!searchQuery) return data;
     return data.filter((item) =>
@@ -101,9 +101,7 @@ const DataTable = ({
     a.click();
     window.URL.revokeObjectURL(url);
   };
-  const changeColor = (index) => {
-    return index % 2 === 0;
-  };
+
   const printToPDF = () => {
     const printContent = document.createElement("div");
     printContent.innerHTML = `
@@ -134,7 +132,8 @@ const DataTable = ({
                 text-align: left;
               }
               thead {
-                background-color: #f3f4f6;
+                background-color: #000;
+                color: white;
               }
             }
           </style>
@@ -144,8 +143,8 @@ const DataTable = ({
                 <tr>
                   ${safeColumns
                     .map(
-                      (column) => `
-                    <th>${column.header}</th>
+                      (column) => ` 
+                    <th style="color: #FFD700;">${column.header}</th>
                   `
                     )
                     .join("")}
@@ -154,7 +153,7 @@ const DataTable = ({
               <tbody>
                 ${processedData
                   .map(
-                    (row) => `
+                    (row) => ` 
                   <tr>
                     ${safeColumns
                       .map(
@@ -190,7 +189,8 @@ const DataTable = ({
   }
 
   return (
-    <div className="w-full space-y-4">
+    <div className="w-full space-y-6">
+      {/* Search and Action Buttons */}
       <div className="flex justify-between items-center gap-4">
         <div className="flex items-center gap-2 relative">
           <input
@@ -198,64 +198,62 @@ const DataTable = ({
             placeholder="Search..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="px-3 py-2 border rounded-md w-64 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-4 py-3 rounded-md border border-gray-400 w-72 shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
           />
-          <Search className="w-4 h-4 text-gray-500 absolute right-3" />
+          <Search className="w-5 h-5 text-gray-500 absolute right-3 top-1/2 transform -translate-y-1/2" />
         </div>
 
         {isExportEnabled && (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <button
               onClick={exportToExcel}
-              className="flex items-center gap-2 px-4 py-2 rounded-md 
-    bg-[#217346] hover:bg-[#1a5c38] text-white 
-    transition-colors duration-200 
-    shadow-sm font-medium"
+              className="flex items-center gap-2 px-5 py-3 rounded-md bg-yellow-600 text-black hover:bg-yellow-500 transition duration-200 shadow-md"
             >
-              <Download className="w-4 h-4" />
-              Export Excel
+              <Download className="w-5 h-5" />
+              Export
             </button>
             <button
               onClick={printToPDF}
-              className="flex items-center gap-2 px-4 py-2 rounded-md bg-green-700 hover:bg-green-900 text-white 
-    transition-colors duration-200 
-    shadow-sm font-medium"
+              className="flex items-center gap-2 px-5 py-3 rounded-md bg-yellow-600 text-black hover:bg-yellow-500 transition duration-200 shadow-md"
             >
-              <Printer className="w-4 h-4" />
-              Print PDF
+              <Printer className="w-5 h-5" />
+              Print
             </button>
           </div>
         )}
       </div>
 
-      <div className="border rounded-lg overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+      {/* Data Table */}
+      <div className="border rounded-lg overflow-x-auto shadow-xl bg-black text-white">
+        <table className="min-w-full table-auto">
+          <thead className="bg-black text-sm text-white">
             <tr>
               {safeColumns.map((column) => (
                 <th
                   key={column.key}
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                  className="px-6 py-3 text-left font-semibold cursor-pointer hover:bg-gray-800"
                   onClick={() => handleSort(column.key)}
                 >
                   <div className="flex items-center gap-2">
                     {column.header}
                     {sortConfig.key === column.key && (
-                      <span>{sortConfig.direction === "asc" ? "↑" : "↓"}</span>
+                      <span className="text-xs text-white">
+                        {sortConfig.direction === "asc" ? "↑" : "↓"}
+                      </span>
                     )}
                   </div>
                 </th>
               ))}
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
-            <tr className="bg-gray-50">
+          <tbody className="bg-white text-sm text-black divide-y">
+            <tr className="bg-gray-200">
               {safeColumns.map((column) => (
                 <td key={`filter-${column.key}`} className="px-6 py-2">
                   {column.key.toLowerCase() !== "action" && (
                     <Select
-                    className="w-full max-w-xs "
-                    popupMatchSelectWidth={false}
+                      className="w-full max-w-xs bg-gray-100 text-black"
+                      popupMatchSelectWidth={false}
                       showSearch
                       value={filters[column.key] || ""}
                       onChange={(value) =>
@@ -263,7 +261,6 @@ const DataTable = ({
                           ...prev,
                           [column.key]: value,
                         }))
-                        
                       }
                       filterOption={(input, option) =>
                         option.children
@@ -271,48 +268,33 @@ const DataTable = ({
                           .toLowerCase()
                           .includes(input.toLowerCase())
                       }
-                     
                     >
                       <Select.Option value="">All</Select.Option>
-                      {[
-                        ...new Set(safeData.map((item) => item[column.key])),
-                      ].map((value) => {
-                        return (
-                          <Select.Option
-                            key={String(value)}
-                            value={String(value)}
-                          >
+                      {[...new Set(safeData.map((item) => item[column.key]))].map(
+                        (value) => (
+                          <Select.Option key={String(value)} value={String(value)}>
                             {value}
                           </Select.Option>
-                        );
-                      })}
+                        )
+                      )}
                     </Select>
                   )}
                 </td>
               ))}
             </tr>
-            {paginatedData.map((row, index) => (
+            {paginatedData.map((row) => (
               <tr
-                key={index}
+                key={row._id}
                 onClick={() => onSelectRow(row._id)}
                 className={`${
                   active[row._id]
-                    ? "bg-blue-200"
-                    : changeColor(index)
-                    ? "hover:bg-gray-200 bg-gray-100"
-                    : " hover:bg-gray-200 bg-white" //
-                } cursor-pointer `}
+                    ? "bg-yellow-500 border-l-4 border-yellow-600"
+                    : "hover:bg-gray-100"
+                } cursor-pointer`}
               >
                 {safeColumns.map((column) => (
-                  <td
-                    key={`${index}-${column.key}`}
-                    className="px-6 py-4"
-                    onDoubleClick={() => {
-                      console.log("row", row);
-                      updateHandler(row[catcher]);
-                    }}
-                  >
-                    {row[column.key]}
+                  <td key={column.key} className="px-6 py-4 whitespace-nowrap">
+                    {row[column.key] || "-"}
                   </td>
                 ))}
               </tr>
@@ -321,39 +303,39 @@ const DataTable = ({
         </table>
       </div>
 
+      {/* Pagination and Page Size */}
       <div className="flex justify-between items-center">
-        <select
-          value={pageSize}
-          onChange={(e) => setPageSize(Number(e.target.value))}
-          className="px-7 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-          {[5, 10, 20, 50, 100].map((size) => (
-            <option key={size} value={size}>
-              {size} per page
-            </option>
-          ))}
-        </select>
-
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
           <button
-            onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
-            disabled={currentPage === 1}
-            className="p-2 border rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="p-3 rounded-md bg-yellow-600 text-black hover:bg-yellow-500 transition duration-200"
+            onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="w-5 h-5" />
           </button>
-          <span className="text-sm">
-            Page {currentPage} of {Math.max(1, totalPages)}
+          <span>
+            Page {currentPage} of {totalPages}
           </span>
           <button
-            onClick={() =>
-              setCurrentPage((prev) => Math.min(totalPages, prev + 1))
-            }
-            disabled={currentPage === totalPages || totalPages === 0}
-            className="p-2 border rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="p-3 rounded-md bg-yellow-600 text-black hover:bg-yellow-500 transition duration-200"
+            onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-5 h-5" />
           </button>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <span>Show:</span>
+          <Select
+            value={pageSize}
+            onChange={(value) => setPageSize(value)}
+            className="w-32"
+          >
+            {[100, 200, 300, 500].map((size) => (
+              <Select.Option key={size} value={size}>
+                {size} items
+              </Select.Option>
+            ))}
+          </Select>
         </div>
       </div>
     </div>

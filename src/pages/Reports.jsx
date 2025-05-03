@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from "../components/layouts/Sidebar";
 import {NavLink, Outlet } from "react-router-dom";
 import Navbar from "../components/layouts/Navbar";
+
 const subMenus = [
   { title: "Daybook", link: "/reports/daybook" },
   { title: "Group Report", link: "/reports/group-report" },
@@ -12,10 +13,11 @@ const subMenus = [
   { title: "Lead Report", link: "/reports/lead-report" },
 ];
 const Reports = () => {
+ 
   return (
     <div>
       <div className="w-screen flex mt-20">
-       
+      {location.pathname==="/reports" && <Navbar/>}
         <Sidebar />
         <div className="flex-grow">
           <div className="w-[300px] bg-gray-50 h-full  p-4">

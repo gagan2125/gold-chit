@@ -4,6 +4,7 @@ import Navbar from "./components/layouts/Navbar";
 const Home = lazy(() => import("./pages/Home"));
 const Login = lazy(() => import("./pages/Login"));
 const Group = lazy(() => import("./pages/Group"));
+const GroupBreakDown = lazy(() => import("./pages/groupBreakDown")); 
 const User = lazy(() => import("./pages/User"));
 const Enroll = lazy(() => import("./pages/Enroll"));
 const Auction = lazy(() => import("./pages/Auction"));
@@ -64,6 +65,15 @@ function App() {
                 </ProtectedRoute>
               }
             />
+<Route
+              path="/group-breakdown"
+              element={
+                <ProtectedRoute>
+                  <GroupBreakDown />
+                </ProtectedRoute>
+              }
+            />
+
             <Route
               path="/week-group"
               element={

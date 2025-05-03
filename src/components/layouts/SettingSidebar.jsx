@@ -38,6 +38,15 @@ const MenuSidebar = [
     link: "/lead",
   },
   { title: "Payments ", icon: <BsCash />, link: "/payment" },
+
+  {
+    id: "$2",
+    title: "Group breakdown ",
+    spacing: true,
+    icon: <TbCategoryPlus />,
+    link: "/group-breakdown",
+  },
+
   {
     title: "Profile",
     spacing: true,
