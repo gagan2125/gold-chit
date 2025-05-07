@@ -756,7 +756,9 @@ const GroupReport = () => {
                                 </p>
                               </div>
                             </div>
-                            <div className="bg-yellow-500  shadow-lg rounded-xl p-6 text-white">
+                            <div className="group flex items-center bg-white border border-[#e8d28f] 
+                          p-5 rounded-2xl shadow-md transition-all duration-300 
+                          hover:scale-105 hover:shadow-lg hover:border-[#e0b84c]">
                               <h3 className="text-2xl font-semibold text-start mb-2">
                                 ₹ {groupPaid || 0}
                               </h3>
@@ -764,7 +766,9 @@ const GroupReport = () => {
                                 <p className="mb-2 font-bold">Paid Amount</p>
                               </div>
                             </div>
-                            <div className="bg-yellow-500  shadow-lg rounded-xl p-6 text-white">
+                            <div className="group flex items-center bg-white border border-[#e8d28f] 
+                          p-5 rounded-2xl shadow-md transition-all duration-300 
+                          hover:scale-105 hover:shadow-lg hover:border-[#e0b84c]">
                               <h3 className="text-2xl font-semibold text-start mb-2">
                                 ₹{" "}
                                 {filteredUsers[0]?.group?.group_type ===
@@ -864,7 +868,9 @@ const GroupReport = () => {
                           </div>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10 mb-10">
-                          <div className="bg-gradient-to-br from-[#4556aa] via-[#634bd1] to-[#e6d3c4] shadow-lg rounded-xl p-6 text-white">
+                        <div className="group flex items-center bg-white border border-[#e8d28f] 
+                          p-5 rounded-2xl shadow-md transition-all duration-300 
+                          hover:scale-105 hover:shadow-lg hover:border-[#e0b84c]">
                             <h3 className="text-2xl font-semibold text-start mb-2">
                               ₹
                               {filteredUsers[0]?.group?.group_type ===
@@ -912,7 +918,9 @@ const GroupReport = () => {
                               </p>
                             </div>
                           </div>
-                          <div className="bg-gradient-to-br from-[#306fae] via-[#ffa750] to-[#e6d3c4] shadow-lg rounded-xl p-6 text-white">
+                          <div className="group flex items-center bg-white border border-[#e8d28f] 
+                          p-5 rounded-2xl shadow-md transition-all duration-300 
+                          hover:scale-105 hover:shadow-lg hover:border-[#e0b84c]">
                             <h3 className="text-2xl font-semibold text-start mb-2">
                               ₹ {groupPaidDate || 0}
                             </h3>
@@ -920,7 +928,9 @@ const GroupReport = () => {
                               <p className="mb-2 font-bold">Paid Amount</p>
                             </div>
                           </div>
-                          <div className="bg-gradient-to-br from-[#0f2027] via-[#1739c2] to-[#2c5364] shadow-lg rounded-xl p-6 text-white">
+                          <div className="group flex items-center bg-white border border-[#e8d28f] 
+                          p-5 rounded-2xl shadow-md transition-all duration-300 
+                          hover:scale-105 hover:shadow-lg hover:border-[#e0b84c]">
                             <h3 className="text-2xl font-semibold text-start mb-2">
                               ₹
                               {filteredUsers[0]?.group?.group_type ===

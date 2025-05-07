@@ -32,10 +32,10 @@ const MenuSidebar = [
     // link: "/group",
   },
   {
-    title: "Leads",
+    title: "Designations",
     spacing: true,
     icon: <IoPeopleOutline />,
-    link: "/lead",
+    link: "/designation",
   },
   { title: "Payments ", icon: <BsCash />, link: "/payment" },
 

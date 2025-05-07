@@ -31,12 +31,14 @@ import WhatsappFailed from "./pages/WhatsappFailed";
 import AllGroupReport from "./pages/AllGroupReport";
 import Reports from "./pages/Reports";
 import LeadReport from "./pages/LeadReport";
+import AllUserReport from "./pages/AllUserReport";
+import Designation from "./pages/Designation";
 import Sidebar from "./components/layouts/Sidebar";
 
 function App() {
   return (
     <>
-      <div className="overflow-x-hidden">
+      <div className="overflow-x">
         <Suspense fallback={<CircularLoader seconds={30} />}>
           <Routes>
             <Route path="/" element={<Login />} />
@@ -124,6 +126,15 @@ function App() {
               }
             />
 
+<Route
+              path="/designation"
+              element={
+                <ProtectedRoute>
+                  <Designation />
+                </ProtectedRoute>
+              }
+            />
+
             <Route
               path="/lead"
               element={
@@ -185,9 +196,11 @@ function App() {
               <Route path="receipt" element={<Receipt />} />
               <Route path="group-report" element={<GroupReport />} />
               <Route path="all-group-report" element={<AllGroupReport />} />
+              <Route path="all-user-report" element={<AllUserReport />} />
               <Route path="auction-report" element={<AuctionReport />} />
               <Route path="lead-report" element={<LeadReport />} />
               <Route path="user-report" element={<UserReport />} />
+              <Route path="all-user-report" element={<AllUserReport />} />
             </Route>
 
             <Route
