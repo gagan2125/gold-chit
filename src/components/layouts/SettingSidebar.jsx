@@ -31,12 +31,12 @@ const MenuSidebar = [
     submenuItems: [{ title: "Groups", link: "app-settings/groups" }],
     // link: "/group",
   },
-  {
-    title: "Designations",
-    spacing: true,
-    icon: <IoPeopleOutline />,
-    link: "/designation",
-  },
+  // {
+  //   title: "Designations",
+  //   spacing: true,
+  //   icon: <IoPeopleOutline />,
+  //   link: "/designation",
+  // },
   { title: "Payments ", icon: <BsCash />, link: "/payment" },
 
   {
