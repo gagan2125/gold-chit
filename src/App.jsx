@@ -34,6 +34,7 @@ import LeadReport from "./pages/LeadReport";
 import AllUserReport from "./pages/AllUserReport";
 import Designation from "./pages/Designation";
 import Sidebar from "./components/layouts/Sidebar";
+import EmployeeReport from "./pages/EmployeeReport";
 
 function App() {
   return (
@@ -201,6 +202,7 @@ function App() {
               <Route path="lead-report" element={<LeadReport />} />
               <Route path="user-report" element={<UserReport />} />
               <Route path="all-user-report" element={<AllUserReport />} />
+              <Route path="employee-report" element={<EmployeeReport />} />
             </Route>
 
             <Route

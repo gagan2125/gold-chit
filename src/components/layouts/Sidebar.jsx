@@ -14,6 +14,7 @@ import { FaPeopleArrows, FaUserLock } from "react-icons/fa";
 import { GiGoldBar } from "react-icons/gi";
 import { IoPeopleOutline } from "react-icons/io5";
 import { GoGraph } from "react-icons/go";
+import { TbArrowsLeftDown } from "react-icons/tb";
 
 const MenuSidebar = [
   {
@@ -185,6 +186,14 @@ const Sidebar = () => {
           </Fragment>
         ))}
       </ul>
+         <div
+          className="rounded-md fixed right-1 bottom-20 bg-yellow-500 p-2 bg-opacity-50 hover:bg-opacity-100 active:scale-95"
+          onClick={() => {
+            ref.current.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          <TbArrowsLeftDown className="text-3xl text-black rotate-90" />
+        </div>
     </div>
   );
 };

@@ -70,7 +70,7 @@ const Navbar = ({ onGlobalSearchChangeHandler = () => {}, visibility = false }) 
             </a>
           </div>
 
-          {/* Mobile Menu Icon */}
+         
           <div className="md:hidden" onClick={() => setOpen(!open)}>
             <MdMenu className="text-3xl text-gray-800" />
           </div>
