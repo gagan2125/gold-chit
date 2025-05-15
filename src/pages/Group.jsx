@@ -391,15 +391,14 @@ const Group = () => {
               <div className="flex justify-between items-center w-full">
                 <h1 className="text-2xl font-semibold">Groups</h1>
                 <button
-  onClick={() => {
-    setShowModal(true);
-    setErrors({});
-  }}
-  className="ml-4 bg-yellow-600 text-white px-4 py-2 rounded shadow-md hover:bg-yellow-500 transition duration-200"
->
-  + Add Group
-</button>
-
+                  onClick={() => {
+                    setShowModal(true);
+                    setErrors({});
+                  }}
+                  className="ml-4 bg-blue-950 text-white px-4 py-2 rounded shadow-md hover:bg-blue-800 transition duration-200"
+                >
+                  + Add Group
+                </button>
               </div>
             </div>
 
@@ -408,7 +407,7 @@ const Group = () => {
               updateHandler={handleUpdateModalOpen}
               data={filterOption(TableGroups,searchText)}
               columns={columns}
-                      exportedFileName={`Groups-${
+              exportedFileName={`Groups-${
                 TableGroups.length > 0
                   ? TableGroups[0].date.split("T")[0] +
                     " to " +
@@ -471,131 +470,284 @@ const Group = () => {
           </div>
         </div>
         <Modal isVisible={showModal} onClose={() => setShowModal(false)}>
-  <div className="py-6 px-5 lg:px-8 text-left bg-white rounded-xl shadow-lg">
-    <h3 className="mb-4 text-xl font-bold text-black">Add Group</h3>
-    <form className="space-y-6" onSubmit={handleSubmit} noValidate>
-      
-      {/* Group Name */}
-      <div>
-        <label className="block mb-2 text-sm font-medium text-black">Group Name</label>
-        <input
-          type="text"
-          name="group_name"
-          value={formData.group_name}
-          onChange={handleChange}
-          placeholder="Enter the Group Name"
-          required
-          className="bg-white border border-[#d4af37] text-black text-sm rounded-lg focus:ring-[#d4af37] focus:border-[#d4af37] w-full p-2.5"
-        />
-        {errors.group_name && <p className="text-red-500 text-sm mt-1">{errors.group_name}</p>}
-      </div>
-
-      {/* Group Type */}
-      <div className="w-full">
-        <label className="block mb-2 text-sm font-medium text-black">Group Type</label>
-        <select
-          name="group_type"
-          value={formData.group_type}
-          onChange={handleChange}
-          required
-          className="bg-white border border-[#d4af37] text-black text-sm rounded-lg focus:ring-[#d4af37] focus:border-[#d4af37] w-full p-2.5"
-        >
-          <option value="">Select Group Type</option>
-          <option value="divident">Divident Group</option>
-          <option value="double">Double Group</option>
-        </select>
-        {errors.group_type && <p className="text-red-500 text-sm mt-1">{errors.group_type}</p>}
-      </div>
-
-      {/* Minimum Amount */}
-      <div>
-        <label className="block mb-2 text-sm font-medium text-black">Minimum Amount</label>
-        <input
-          type="number"
-          name="minimum_amount"
-          value={formData.minimum_amount}
-          onChange={handleChange}
-          placeholder="Enter Minimum Amount"
-          required
-          className="bg-white border border-[#d4af37] text-black text-sm rounded-lg focus:ring-[#d4af37] focus:border-[#d4af37] w-full p-2.5"
-        />
-        {errors.minimum_amount && <p className="text-red-500 text-sm mt-1">{errors.minimum_amount}</p>}
-      </div>
-
-      {/* Per Member Amount */}
-      <div>
-        <label className="block mb-2 text-sm font-medium text-black">Per Member Amount</label>
-        <input
-          type="number"
-          name="per_member_amount"
-          value={formData.per_member_amount}
-          onChange={handleChange}
-          placeholder="Enter Per Member Amount"
-          required
-          className="bg-white border border-[#d4af37] text-black text-sm rounded-lg focus:ring-[#d4af37] focus:border-[#d4af37] w-full p-2.5"
-        />
-        {errors.per_member_amount && <p className="text-red-500 text-sm mt-1">{errors.per_member_amount}</p>}
-      </div>
-
-      {/* Commission */}
-      <div>
-        <label className="block mb-2 text-sm font-medium text-black">Commission</label>
-        <input
-          type="number"
-          name="commission"
-          value={formData.commission}
-          onChange={handleChange}
-          placeholder="Enter Commission"
-          required
-          className="bg-white border border-[#d4af37] text-black text-sm rounded-lg focus:ring-[#d4af37] focus:border-[#d4af37] w-full p-2.5"
-        />
-        {errors.commission && <p className="text-red-500 text-sm mt-1">{errors.commission}</p>}
-      </div>
-
-      {/* Minimum Group Member */}
-      <div>
-        <label className="block mb-2 text-sm font-medium text-black">Minimum Group Member</label>
-        <input
-          type="number"
-          name="minimum_group_member"
-          value={formData.minimum_group_member}
-          onChange={handleChange}
-          placeholder="Enter Minimum Group Member"
-          required
-          className="bg-white border border-[#d4af37] text-black text-sm rounded-lg focus:ring-[#d4af37] focus:border-[#d4af37] w-full p-2.5"
-        />
-        {errors.minimum_group_member && <p className="text-red-500 text-sm mt-1">{errors.minimum_group_member}</p>}
-      </div>
-
-      {/* Status */}
-      <div>
-        <label className="block mb-2 text-sm font-medium text-black">Status</label>
-        <select
-          name="status"
-          value={formData.status}
-          onChange={handleChange}
-          required
-          className="bg-white border border-[#d4af37] text-black text-sm rounded-lg focus:ring-[#d4af37] focus:border-[#d4af37] w-full p-2.5"
-        >
-          <option value="">Select Status</option>
-          <option value="active">Active</option>
-          <option value="inactive">Inactive</option>
-        </select>
-        {errors.status && <p className="text-red-500 text-sm mt-1">{errors.status}</p>}
-      </div>
-
-      {/* Submit Button */}
-      <button
-        type="submit"
-        className="w-full text-white bg-[#d4af37] hover:bg-[#b48a2f] hover:text-black 
-        focus:ring-4 focus:outline-none focus:ring-[#d4af37] font-semibold rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-300"
-      >
-        Add Group
-      </button>
-    </form>
-  </div>
-</Modal>
-
+          <div className="py-6 px-5 lg:px-8 text-left">
+            <h3 className="mb-4 text-xl font-bold text-gray-900">Add Group</h3>
+            <form className="space-y-6" onSubmit={handleSubmit} noValidate>
+              <div>
+                <label
+                  className="block mb-2 text-sm font-medium text-gray-900"
+                  htmlFor="email"
+                >
+                  Group Name
+                </label>
+                <input
+                  type="text"
+                  name="group_name"
+                  value={formData.group_name}
+                  onChange={handleChange}
+                  id="name"
+                  placeholder="Enter the Group Name"
+                  required
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+                />
+                {errors.group_name && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.group_name}
+                  </p>
+                )}
+              </div>
+              <div className="w-full">
+                <label
+                  className="block mb-2 text-sm font-medium text-gray-900"
+                  htmlFor="category"
+                >
+                  Group Type
+                </label>
+                <select
+                  name="group_type"
+                  id="category"
+                  value={formData.group_type}
+                  onChange={handleChange}
+                  required
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+                >
+                  <option value="">Select Group Type</option>
+                  <option value="divident">Divident Group</option>
+                  <option value="double">Double Group</option>
+                </select>
+                {errors.group_type && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.group_type}
+                  </p>
+                )}
+              </div>
+              <div className="flex flex-row justify-between space-x-4">
+                <div className="w-1/2">
+                  <label
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                    htmlFor="date"
+                  >
+                    Group Value
+                  </label>
+                  <input
+                    type="number"
+                    name="group_value"
+                    value={formData.group_value}
+                    onChange={handleChange}
+                    id="text"
+                    placeholder="Enter Group Value"
+                    required
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+                  />
+                  {errors.group_value && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.group_value}
+                    </p>
+                  )}
+                </div>
+                <div className="w-1/2">
+                  <label
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                    htmlFor="date"
+                  >
+                    Group Installment Amount
+                  </label>
+                  <input
+                    type="number"
+                    name="group_install"
+                    value={formData.group_install}
+                    onChange={handleChange}
+                    id="text"
+                    placeholder="Enter Group Installment Amount"
+                    required
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+                  />
+                  {errors.group_install && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.group_install}
+                    </p>
+                  )}
+                </div>
+              </div>
+              <div className="flex flex-row justify-between space-x-4">
+                <div className="w-1/2">
+                  <label
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                    htmlFor="date"
+                  >
+                    Group Members
+                  </label>
+                  <input
+                    type="number"
+                    name="group_members"
+                    value={formData.group_members}
+                    onChange={handleChange}
+                    id="text"
+                    placeholder="Enter Group Members"
+                    required
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+                  />
+                  {errors.group_members && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.group_members}
+                    </p>
+                  )}
+                </div>
+                <div className="w-1/2">
+                  <label
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                    htmlFor="date"
+                  >
+                    Group Duration
+                  </label>
+                  <input
+                    type="number"
+                    name="group_duration"
+                    value={formData.group_duration}
+                    onChange={handleChange}
+                    id="text"
+                    placeholder="Enter Group Duration"
+                    required
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+                  />
+                  {errors.group_duration && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.group_duration}
+                    </p>
+                  )}
+                </div>
+              </div>
+              <div className="flex flex-row justify-between space-x-4">
+                <div className="w-full">
+                  <label
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                    htmlFor="date"
+                  >
+                    Registration Fee
+                  </label>
+                  <input
+                    type="number"
+                    name="reg_fee"
+                    value={formData.reg_fee}
+                    onChange={handleChange}
+                    id="text"
+                    placeholder="Enter Registration Fee"
+                    required
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+                  />
+                  {errors.reg_fee && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.reg_fee}
+                    </p>
+                  )}
+                </div>
+              </div>
+              <div className="flex flex-row justify-between space-x-4">
+                <div className="w-1/2">
+                  <label
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                    htmlFor="date"
+                  >
+                    Start Date
+                  </label>
+                  <input
+                    type="date"
+                    name="start_date"
+                    value={formData.start_date}
+                    onChange={handleChange}
+                    id="date"
+                    placeholder="Enter the Date"
+                    required
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+                  />
+                  {errors.start_date && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.start_date}
+                    </p>
+                  )}
+                </div>
+                <div className="w-1/2">
+                  <label
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                    htmlFor="date"
+                  >
+                    End Date
+                  </label>
+                  <input
+                    type="date"
+                    name="end_date"
+                    value={formData.end_date}
+                    onChange={handleChange}
+                    id="date"
+                    placeholder="Enter the Date"
+                    required
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+                  />
+                  {errors.end_date && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.end_date}
+                    </p>
+                  )}
+                </div>
+              </div>
+              <div className="flex flex-row justify-between space-x-4">
+                <div className="w-1/2">
+                  <label
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                    htmlFor="date"
+                  >
+                    Minimum Bid
+                  </label>
+                  <input
+                    type="number"
+                    name="minimum_bid"
+                    value={formData.minimum_bid}
+                    onChange={handleChange}
+                    id="text"
+                    placeholder="Enter Minimum Bid"
+                    required
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+                  />
+                  {errors.minimum_bid && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.minimum_bid}
+                    </p>
+                  )}
+                </div>
+                <div className="w-1/2">
+                  <label
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                    htmlFor="date"
+                  >
+                    Maximum Bid
+                  </label>
+                  <input
+                    type="number"
+                    name="maximum_bid"
+                    value={formData.maximum_bid}
+                    onChange={handleChange}
+                    id="text"
+                    placeholder="Enter Maximum Bid"
+                    required
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+                  />
+                  {errors.maximum_bid && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.maximum_bid}
+                    </p>
+                  )}
+                </div>
+              </div>
+              <button
+                type="submit"
+                className="w-full text-white bg-blue-700 hover:bg-blue-800
+              focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              >
+                Add
+              </button>
+            </form>
+          </div>
+        </Modal>
         <Modal
           isVisible={showModalUpdate}
           onClose={() => setShowModalUpdate(false)}

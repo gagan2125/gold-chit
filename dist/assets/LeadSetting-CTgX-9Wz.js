@@ -1,0 +1,1 @@
+import{j as e,o as s,O as t}from"./index-CVU8XVJV.js";const a=()=>e.jsx(e.Fragment,{children:e.jsx("div",{children:e.jsxs("div",{className:"flex mt-20",children:[e.jsx(s,{}),e.jsx(t,{})]})})});export{a as default};
