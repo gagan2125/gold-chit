@@ -37,6 +37,7 @@ const Group = () => {
   const [formData, setFormData] = useState({
     group_name: "",
     group_type: "",
+    group_savings_type:"",
     group_value: "",
     group_install: "",
     group_members: "",
@@ -52,6 +53,7 @@ const Group = () => {
   const [updateFormData, setUpdateFormData] = useState({
     group_name: "",
     group_type: "",
+    group_savings_type:"",
     group_value: "",
     group_install: "",
     group_members: "",
@@ -89,6 +91,10 @@ const Group = () => {
 
     if (!data.group_type) {
       newErrors.group_type = "Group Type is required";
+    }
+
+    if (!data.group_savings_type) {
+      newErrors.group_savings_type = "Group Svings Type is required";
     }
 
     if (!data.group_value || isNaN(data.group_value) || data.group_value <= 0) {
@@ -175,6 +181,7 @@ const Group = () => {
         setFormData({
           group_name: "",
           group_type: "",
+          group_savings_type: "",
           group_value: "",
           group_install: "",
           group_members: "",
@@ -201,12 +208,13 @@ const Group = () => {
         const formattedData = response.data.map((group, index) => ({
           _id: group._id,
           id: index + 1,
-          name: group.group_name,
-          type:
+          name: group?.group_type,
+          type:group.group_type?
             group.group_type.charAt(0).toUpperCase() +
             group.group_type.slice(1) +
-            " Group",
+            " Group" :"",
           value: group.group_value,
+          savings_type: group?.group_savings_type,
           installment: group.group_install,
           members: group.group_members,
           date: group.createdAt,
@@ -269,7 +277,7 @@ const Group = () => {
   }, []);
 
   const filteredGroups = groups.filter((group) =>
-    group.group_name.toLowerCase().includes(searchTerm.toLowerCase())
+    group.group_name?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const handleDeleteModalOpen = async (groupId) => {
@@ -293,6 +301,7 @@ const Group = () => {
       setUpdateFormData({
         group_name: response.data.group_name,
         group_type: response.data.group_type,
+         group_savings_type: response.data.group_savings_type,
         group_value: response.data.group_value,
         group_install: response.data.group_install,
         group_members: response.data.group_members,
@@ -737,6 +746,28 @@ const Group = () => {
                     </p>
                   )}
                 </div>
+
+<div className="w-full">
+  <label className="block mb-2 text-sm font-medium text-gray-900">
+    Saving Type
+  </label>
+  <select
+    name="group_savings_type"
+    value={formData.group_savings_type}
+    onChange={handleChange}
+    required
+    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+  >
+    <option value="">Select Saving Type</option>
+    <option value="smart_saving">Smart Saving Scheme</option>
+    <option value="fixed_gold">Fixed Gold Saving Scheme</option>
+  </select>
+  {errors.group_savings_type && (
+    <p className="text-red-500 text-sm mt-1">{errors.group_savings_type}</p>
+  )}
+</div>
+
+
               </div>
               <button
                 type="submit"
@@ -1018,6 +1049,28 @@ const Group = () => {
                     </p>
                   )}
                 </div>
+
+                <div className="w-full">
+  <label className="block mb-2 text-sm font-medium text-gray-900">
+    Saving Type
+  </label>
+  <select
+    name="group_savings_type"
+    value={updateFormData.group_savings_type}
+    onChange={handleInputChange}
+    required
+    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+  >
+    <option value="">Select Saving Type</option>
+    <option value="smart_saving">Smart Saving Scheme</option>
+    <option value="fixed_gold">Fixed Gold Saving Scheme</option>
+  </select>
+  {errors.group_savings_type && (
+    <p className="text-red-500 text-sm mt-1">{errors.group_savings_type}</p>
+  )}
+</div>
+
+
               </div>
               <button
                 type="submit"
