@@ -572,7 +572,7 @@ const Auction = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="category"
                   >
-                    Group
+                    Group <span className="text-red-500">*</span>
                   </label>
                   <select
                     value={selectedGroupId}
@@ -632,7 +632,7 @@ const Auction = () => {
                       className="block mb-2 text-sm font-medium text-gray-900"
                       htmlFor="category"
                     >
-                      Auction Type
+                      Auction Type <span className="text-red-500">*</span>
                     </label>
                     <select
                       name="auction_type"
@@ -657,7 +657,7 @@ const Auction = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="category"
                   >
-                    Customers
+                    Customers <span className="text-red-500">*</span>
                   </label>
                   <select
                     name="user_id"
@@ -688,7 +688,7 @@ const Auction = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="email"
                   >
-                    Bid Amount
+                    Bid Amount <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -801,7 +801,7 @@ const Auction = () => {
                       className="block mb-2 text-sm font-medium text-gray-900"
                       htmlFor="date"
                     >
-                      Auction Date
+                      Auction Date <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="date"
@@ -824,7 +824,7 @@ const Auction = () => {
                       className="block mb-2 text-sm font-medium text-gray-900"
                       htmlFor="date"
                     >
-                      Next Date
+                      Next Date <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="date"
@@ -1121,7 +1121,7 @@ const Auction = () => {
           >
             <div className="py-6 px-5 lg:px-8 text-left">
               <h3 className="mb-4 text-xl font-bold text-gray-900">
-                Sure want to delete this Auction ?
+                Sure want to delete this Auction ? <span className="text-red-500">*</span>
               </h3>
               {currentGroup && (
                 <form

@@ -452,7 +452,7 @@ const Agent = () => {
                   className="block mb-2 text-sm font-medium text-gray-900"
                   htmlFor="email"
                 >
-                  Full Name
+                  Full Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -474,7 +474,7 @@ const Agent = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Email
+                    Email <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
@@ -495,7 +495,7 @@ const Agent = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Phone Number
+                    Phone Number <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -520,7 +520,7 @@ const Agent = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Password
+                    Password <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -543,7 +543,7 @@ const Agent = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Pincode
+                    Pincode <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -568,7 +568,7 @@ const Agent = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Adhaar Number
+                    Adhaar Number <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -591,7 +591,7 @@ const Agent = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Pan Number
+                    Pan Number <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -613,7 +613,7 @@ const Agent = () => {
                   className="block mb-2 text-sm font-medium text-gray-900"
                   htmlFor="email"
                 >
-                  Address
+                  Address <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -653,7 +653,7 @@ const Agent = () => {
                   className="block mb-2 text-sm font-medium text-gray-900"
                   htmlFor="email"
                 >
-                  Full Name
+                  Full Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -675,7 +675,7 @@ const Agent = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Email
+                    Email <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
@@ -696,7 +696,7 @@ const Agent = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Phone Number
+                    Phone Number <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -721,7 +721,7 @@ const Agent = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Pincode
+                    Pincode <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -746,7 +746,7 @@ const Agent = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Adhaar Number
+                    Adhaar Number <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -769,7 +769,7 @@ const Agent = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Pan Number
+                    Pan Number <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -790,8 +790,8 @@ const Agent = () => {
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900"
                   htmlFor="email"
-                >
-                  Address
+                > 
+                  Address <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -845,7 +845,7 @@ const Agent = () => {
                     <span className="text-primary font-bold">
                       {currentUser.name}
                     </span>{" "}
-                    to confirm deletion.
+                    to confirm deletion. <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"

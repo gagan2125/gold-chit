@@ -435,7 +435,7 @@ const User = () => {
                   className="block mb-2 text-sm font-medium text-gray-900"
                   htmlFor="email"
                 >
-                  Full Name
+                  Full Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -480,7 +480,7 @@ const User = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Phone Number
+                    Phone Number<span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -505,7 +505,7 @@ const User = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Password
+                    Password <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -528,7 +528,7 @@ const User = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Pincode
+                    Pincode <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -553,7 +553,7 @@ const User = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Adhaar Number
+                    Adhaar Number <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -598,7 +598,7 @@ const User = () => {
                   className="block mb-2 text-sm font-medium text-gray-900"
                   htmlFor="email"
                 >
-                  Address
+                  Address <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -638,7 +638,7 @@ const User = () => {
                   className="block mb-2 text-sm font-medium text-gray-900"
                   htmlFor="email"
                 >
-                  Full Name
+                  Full Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -683,7 +683,7 @@ const User = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Phone Number
+                    Phone Number <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -708,7 +708,7 @@ const User = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Pincode
+                    Pincode <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -733,7 +733,7 @@ const User = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Adhaar Number
+                    Adhaar Number <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -778,7 +778,7 @@ const User = () => {
                   className="block mb-2 text-sm font-medium text-gray-900"
                   htmlFor="email"
                 >
-                  Address
+                  Address <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -832,7 +832,7 @@ const User = () => {
                     <span className="text-primary font-bold">
                       {currentUser.full_name}
                     </span>{" "}
-                    to confirm deletion.
+                    to confirm deletion. <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"

@@ -208,7 +208,7 @@ const Group = () => {
         const formattedData = response.data.map((group, index) => ({
           _id: group._id,
           id: index + 1,
-          name: group?.group_type,
+          name: group?.group_name,
           type:group.group_type?
             group.group_type.charAt(0).toUpperCase() +
             group.group_type.slice(1) +
@@ -487,7 +487,7 @@ const Group = () => {
                   className="block mb-2 text-sm font-medium text-gray-900"
                   htmlFor="email"
                 >
-                  Group Name
+                  Group Name  <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -510,7 +510,7 @@ const Group = () => {
                   className="block mb-2 text-sm font-medium text-gray-900"
                   htmlFor="category"
                 >
-                  Group Type
+                  Group Type  <span className="text-red-500">*</span>
                 </label>
                 <select
                   name="group_type"
@@ -536,7 +536,7 @@ const Group = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Group Value
+                    Group Value <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -559,7 +559,7 @@ const Group = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Group Installment Amount
+                    Group Installment Amount <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -584,7 +584,7 @@ const Group = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Group Members
+                    Group Members <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -607,7 +607,7 @@ const Group = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Group Duration
+                    Group Duration <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -632,7 +632,7 @@ const Group = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Registration Fee
+                    Registration Fee <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -657,7 +657,7 @@ const Group = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Start Date
+                    Start Date <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="date"
@@ -705,7 +705,7 @@ const Group = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Minimum Bid
+                    Minimum Bid <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -728,7 +728,7 @@ const Group = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Maximum Bid
+                    Maximum Bid <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -749,7 +749,7 @@ const Group = () => {
 
 <div className="w-full">
   <label className="block mb-2 text-sm font-medium text-gray-900">
-    Saving Type
+    Saving Type <span className="text-red-500">*</span>
   </label>
   <select
     name="group_savings_type"
@@ -793,7 +793,7 @@ const Group = () => {
                   className="block mb-2 text-sm font-medium text-gray-900"
                   htmlFor="email"
                 >
-                  Group Name
+                  Group Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -816,7 +816,7 @@ const Group = () => {
                   className="block mb-2 text-sm font-medium text-gray-900"
                   htmlFor="category"
                 >
-                  Group Type
+                  Group Type <span className="text-red-500">*</span>
                 </label>
                 <select
                   name="group_type"
@@ -843,7 +843,7 @@ const Group = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Group Value
+                    Group Value <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -866,7 +866,7 @@ const Group = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Group Installment Amount
+                    Group Installment Amount <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -891,7 +891,7 @@ const Group = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Group Members
+                    Group Members <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -914,7 +914,7 @@ const Group = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Group Duration
+                    Group Duration <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -938,7 +938,7 @@ const Group = () => {
                   className="block mb-2 text-sm font-medium text-gray-900"
                   htmlFor="email"
                 >
-                  Registration Fee
+                  Registration Fee <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="number"
@@ -960,7 +960,7 @@ const Group = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Start Date
+                    Start Date <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="date"
@@ -1008,7 +1008,7 @@ const Group = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Minimum Bid %
+                    Minimum Bid % <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -1031,7 +1031,7 @@ const Group = () => {
                     className="block mb-2 text-sm font-medium text-gray-900"
                     htmlFor="date"
                   >
-                    Maximum Bid %
+                    Maximum Bid % <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
@@ -1052,7 +1052,7 @@ const Group = () => {
 
                 <div className="w-full">
   <label className="block mb-2 text-sm font-medium text-gray-900">
-    Saving Type
+    Saving Type <span className="text-red-500">*</span>
   </label>
   <select
     name="group_savings_type"
@@ -1110,7 +1110,7 @@ const Group = () => {
                     <span className="text-primary font-bold">
                       {currentGroup.group_name}
                     </span>{" "}
-                    to confirm deletion.
+                    to confirm deletion.  <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"

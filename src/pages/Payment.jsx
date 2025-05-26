@@ -739,7 +739,7 @@ const Payment = () => {
 										className="block mb-2 text-sm font-medium text-gray-900"
 										htmlFor="category"
 									>
-										Customer
+										Customer <span className="text-red-500">*</span>
 									</label>
 									<select
 										value={selectedGroupId}
@@ -766,7 +766,7 @@ const Payment = () => {
 										className="block mb-2 text-sm font-medium text-gray-900"
 										htmlFor="category"
 									>
-										Group & Ticket
+										Group & Ticket <span className="text-red-500">*</span>
 									</label>
 									<select
 										name="group_id"
@@ -844,7 +844,7 @@ const Payment = () => {
 											className="block mb-2 text-sm font-medium text-gray-900"
 											htmlFor="group_value"
 										>
-											Amount
+											Amount <span className="text-red-500">*</span>
 										</label>
 										<input
 											type="number"
@@ -1184,7 +1184,7 @@ const Payment = () => {
 					>
 						<div className="py-6 px-5 lg:px-8 text-left">
 							<h3 className="mb-4 text-xl font-bold text-gray-900">
-								Sure want to delete this Payment ?
+								Sure want to delete this Payment ? <span className="text-red-500">*</span>
 							</h3>
 							{currentGroup && (
 								<form
